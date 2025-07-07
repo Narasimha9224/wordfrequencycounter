@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Frequency Counter</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-chart-bar"></i> Word Frequency Counter</h1>
+            <p>Analyze text to count word frequencies and visualize results</p>
+        </header>
+
+        <div class="input-section">
+            <div class="input-container">
+                <textarea id="text-input" placeholder="Enter or paste your text here..."></textarea>
+                <div class="buttons">
+                    <button id="analyze-btn" class="primary-btn">Analyze Text</button>
+                    <button id="clear-btn" class="secondary-btn">Clear</button>
+                    <button id="sample-btn" class="secondary-btn">Load Sample</button>
+                </div>
+                <div class="options">
+                    <label>
+                        <input type="checkbox" id="remove-stopwords"> 
+                        Remove common words (stopwords)
+                    </label>
+                    <label>
+                        <input type="checkbox" id="case-sensitive">
+                        Case-sensitive analysis
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="results-section" id="results-section">
+            <div id="loading" class="loading-spinner hidden">
+                <div class="spinner"></div>
+                <p>Analyzing text...</p>
+            </div>
+            
+            <div id="results-container" class="hidden">
+                <div class="stats-container">
+                    <div class="stat-box">
+                        <h3>Total Words</h3>
+                        <p id="total-words">0</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>Unique Words</h3>
+                        <p id="unique-words">0</p>
+                    </div>
+                </div>
+                
+                <div class="visualization-container">
+                    <h2>Word Frequency</h2>
+                    <div class="tabs">
+                        <button class="tab-btn active" data-view="table">Table View</button>
+                        <button class="tab-btn" data-view="bar">Bar Chart</button>
+                        <button class="tab-btn" data-view="cloud">Word Cloud</button>
+                    </div>
+                    
+                    <div id="table-view" class="view-container">
+                        <input type="text" id="table-search" placeholder="Search for words...">
+                        <table id="frequency-table">
+                            <thead>
+                                <tr>
+                                    <th>Rank</th>
+                                    <th>Word</th>
+                                    <th>Count</th>
+                                    <th>Percentage</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-body"></tbody>
+                        </table>
+                    </div>
+                    
+                    <div id="bar-view" class="view-container hidden">
+                        <div class="chart-controls">
+                            <label>
+                                Show top: 
+                                <select id="bar-limit">
+                                    <option value="10">10</option>
+                                    <option value="20" selected>20</option>
+                                    <option value="50">50</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div id="bar-chart"></div>
+                    </div>
+                    
+                    <div id="cloud-view" class="view-container hidden">
+                        <div id="word-cloud"></div>
+                    </div>
+                </div>
+                
+                <div class="export-container">
+                    <button id="export-csv" class="export-btn">
+                        <i class="fas fa-file-csv"></i> Export CSV
+                    </button>
+                    <button id="export-json" class="export-btn">
+                        <i class="fas fa-file-code"></i> Export JSON
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Word Frequency Counter | Made with <i class="fas fa-heart"></i> for NLP enthusiasts</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
