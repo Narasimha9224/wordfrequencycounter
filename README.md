@@ -1,4 +1,4 @@
-# wordfrequencycounter
+# word-frequency-counter
 A simple NLP-based web application to analyze input text and visualize word frequency distributions. It helps users explore patterns in their text data by identifying the most frequently used words, with optional stopword removal and case sensitivity.
 # Features
 🚀 Text Analysis: Enter or paste your text and get a word frequency count.
